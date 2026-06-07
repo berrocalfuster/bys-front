@@ -28,6 +28,7 @@ const LinkedInIcon = () => (
 );
 
 import { MdAccountBalanceWallet } from 'react-icons/md';
+import { FaInstagram } from 'react-icons/fa';
 
 export default function Footer({ onPageClick }) {
   const currentYear = new Date().getFullYear();
@@ -69,11 +70,16 @@ export default function Footer({ onPageClick }) {
                 La forma más rápida y segura de enviar dinero en América latina. Únete a cientos de personas que ahorran en cada transferencia.
               </Typography>
               <Stack direction="row" spacing={1}>
-                {[FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon].map((Icon, idx) => (
-                  <IconButton key={idx} sx={{ color: 'white', opacity: 0.6, '&:hover': { opacity: 1, bgcolor: 'rgba(255,255,255,0.1)' } }}>
-                    <Icon />
-                  </IconButton>
-                ))}
+                {/* Guardados para uso futuro: FacebookIcon, TwitterIcon, LinkedInIcon */}
+                <IconButton 
+                  component="a" 
+                  href="https://www.instagram.com/remesasbys1/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  sx={{ color: 'white', opacity: 0.6, '&:hover': { opacity: 1, bgcolor: 'rgba(255,255,255,0.1)' } }}
+                >
+                  <FaInstagram size={24} />
+                </IconButton>
               </Stack>
             </Stack>
           </Grid>
@@ -130,11 +136,11 @@ export default function Footer({ onPageClick }) {
             <Stack spacing={2}>
               <Box>
                 <Typography variant="body2" sx={{ opacity: 0.5 }}>Email</Typography>
-                <Typography variant="body1">soporte@remesasbys.com</Typography>
+                <Typography variant="body1">contacto@bnsglobalservices.com</Typography>
               </Box>
               <Box>
                 <Typography variant="body2" sx={{ opacity: 0.5 }}>Teléfono / WhatsApp</Typography>
-                <Typography variant="body1">+56 9 1234 5678</Typography>
+                <Typography variant="body1">+56 9 3571 6037</Typography>
               </Box>
               <Box>
                 <Typography variant="body2" sx={{ opacity: 0.5 }}>Horario</Typography>

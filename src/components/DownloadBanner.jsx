@@ -106,7 +106,7 @@ export default function DownloadBanner() {
               />
               <Box
                 component="img"
-                src="/assets/phone.png"
+                src="/assets/images/remesas_woman_phone.png"
                 sx={{
                   width: '100%',
                   maxWidth: 450,

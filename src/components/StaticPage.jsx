@@ -66,8 +66,8 @@ const PAGE_CONTENT = {
     content: `
       Estamos aquí para ayudarte. Puedes contactarnos a través de los siguientes canales:
       
-      - Email: soporte@remesasbys.com
-      - WhatsApp: +56 9 1234 5678
+      - Email: contacto@bnsglobalservices.com
+      - WhatsApp: +56 9 3571 6037
       - Horario de Atención: Lunes a Viernes de 9:00 a 18:00 hrs.
       
       También puedes seguirnos en nuestras redes sociales para estar al tanto de las últimas novedades y tasas.
