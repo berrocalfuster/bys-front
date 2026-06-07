@@ -140,22 +140,22 @@ export default function BankDetailsForm({ onNext, onBack, initialData = {} }) {
                         <Stack spacing={3}>
 
                             <FormControl fullWidth>
-                            <InputLabel>Banco del Destinatario</InputLabel>
-                            <Select
-                                name="bank"
-                                value={formData.bank}
-                                label="Banco del Destinatario"
-                                onChange={handleChange}
-                                disabled={loadingBanks}
-                                startAdornment={loadingBanks && <CircularProgress size={20} sx={{ mr: 1 }} />}
-                            >
-                                {banks.map((b) => (
-                                    <MenuItem key={b.slug} value={b.slug}>
-                                        {b.name}
-                                    </MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
+                                <InputLabel>Banco del Destinatario</InputLabel>
+                                <Select
+                                    name="bank"
+                                    value={formData.bank}
+                                    label="Banco del Destinatario"
+                                    onChange={handleChange}
+                                    disabled={loadingBanks}
+                                    startAdornment={loadingBanks && <CircularProgress size={20} sx={{ mr: 1 }} />}
+                                >
+                                    {banks.map((b) => (
+                                        <MenuItem key={b.slug} value={b.slug}>
+                                            {b.name}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
 
                             <FormControl component="fieldset">
                                 <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600 }}>¿Es Pago Móvil?</Typography>
@@ -198,9 +198,12 @@ export default function BankDetailsForm({ onNext, onBack, initialData = {} }) {
                                                 setFormData(prev => ({ ...prev, phonePrefix: e.target.value }));
                                             }}
                                         >
-                                            <MenuItem value="0412">0412</MenuItem>
                                             <MenuItem value="0414">0414</MenuItem>
+                                            <MenuItem value="0414">0424</MenuItem>
                                             <MenuItem value="0416">0416</MenuItem>
+                                            <MenuItem value="0416">0426</MenuItem>
+                                            <MenuItem value="0412">0412</MenuItem>
+                                            <MenuItem value="0412">0422</MenuItem>
                                         </Select>
                                     </FormControl>
                                     <TextField
