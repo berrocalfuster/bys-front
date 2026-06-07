@@ -105,7 +105,10 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
 
                 for (let attempt = 1; attempt <= maxAttempts; attempt++) {
                     try {
-                        const resData = await api.post('/api/1.0/medios/presigne-url-public', { name: file.name });
+                        const resData = await api.post('/api/1.0/medios/presigne-url-public', { 
+                            name: file.name,
+                            type: file.type
+                        });
                         
                         // Valid URL has to contain "wesyncro" and not be the generic fallback endpoint
                         const isValid = resData?.put && 
@@ -137,7 +140,8 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
                     method: 'PUT',
                     body: file,
                     headers: {
-                        'Content-Type': file.type
+                        'Content-Type': file.type,
+                        'x-amz-acl': 'public-read'
                     }
                 });
 
