@@ -99,11 +99,37 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
             let finalImageUrl = null;
 
             if (file) {
-                // 1. Get Presigned URL
-                const presignData = await api.post('/api/1.0/medios/presigne-url-public', { name: file.name });
+                // 1. Get Presigned URL with retry (up to 3 attempts)
+                let presignData = null;
+                const maxAttempts = 3;
 
-                if (!presignData.put || !presignData.link) {
-                    throw new Error('Error al obtener URL de carga');
+                for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+                    try {
+                        const resData = await api.post('/api/1.0/medios/presigne-url-public', { name: file.name });
+                        
+                        // Valid URL has to contain "wesyncro" and not be the generic fallback endpoint
+                        const isValid = resData?.put && 
+                                        resData.put.includes('wesyncro') && 
+                                        resData.put !== 'https://s3.us-west-2.amazonaws.com/';
+
+                        if (isValid && resData.link) {
+                            presignData = resData;
+                            break; // Success, break loop
+                        }
+                        
+                        console.warn(`Intento ${attempt}: URL de presigned inválida o genérica recibida:`, resData?.put);
+                    } catch (err) {
+                        console.error(`Error en intento ${attempt} de obtener presigned URL:`, err);
+                    }
+
+                    if (attempt < maxAttempts) {
+                        // Wait 500ms before retrying
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    }
+                }
+
+                if (!presignData?.put || !presignData?.link) {
+                    throw new Error('Error al obtener una URL de carga válida tras 3 intentos');
                 }
 
                 // 2. Upload File to S3/Storage via PUT (raw fetch because it's a signed URL from AWS)

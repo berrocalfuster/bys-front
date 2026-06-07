@@ -88,7 +88,7 @@ export const api = {
     delete: (endpoint, options = {}) => request(endpoint, { ...options, method: 'DELETE' }),
 
     // Raw fetch for special cases (like S3 uploads where we don't want common headers)
-    raw: fetch,
+    raw: (url, options) => fetch(url, options),
 };
 
 export default api;
