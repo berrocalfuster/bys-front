@@ -136,7 +136,7 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
                 }
 
                 // 2. Upload File to S3/Storage via PUT (raw fetch because it's a signed URL from AWS)
-                await api.raw(presignData.put, {
+                const uploadResponse = await api.raw(presignData.put, {
                     method: 'PUT',
                     body: file,
                     headers: {
@@ -144,6 +144,10 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
                         'x-amz-acl': 'public-read'
                     }
                 });
+
+                if (!uploadResponse.ok) {
+                    throw new Error(`S3 upload failed with status ${uploadResponse.status}`);
+                }
 
                 finalImageUrl = presignData.link;
             }
