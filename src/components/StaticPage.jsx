@@ -45,6 +45,26 @@ const PAGE_CONTENT = {
       - Soporte dedicado en caso de cualquier incidencia.
     `
   },
+  paqueteria: {
+    title: 'Paquetería puerta a puerta a Venezuela',
+    content: `
+      Como agentes autorizados de Cargoexpress Venezuela, aliados con Tealca, enviamos encomiendas y mercancía desde Estados Unidos con entrega puerta a puerta en toda Venezuela.
+
+      Tarifas de envío marítimo — 10 a 40 lbs (4.5 a 18 kg):
+      Caja 15x12x10 in: $119 · Caja 16x12x12 in: $129 · Caja 14x14x14 in: $139 · Caja 16x16x16 in: $189
+
+      Tarifas de envío marítimo — 41 a 65 lbs (18.6 a 29.5 kg):
+      Caja 16x18x18 in: $239 · Caja 21x16x15 in: $239 · Caja 24x18x18 in: $299 · Caja 22x22x22 in: $389
+
+      Salida cada semana, todos los viernes. Entrega marítima: 6 a 8 semanas hábiles. Entrega aérea: 9 a 20 días hábiles.
+
+      Incluye gasto de manejo en destino, con seguro adicional disponible. Envío UPS incluido con drop off en oficina (restricciones aplican).
+
+      Contamos con más de 110 oficinas y entrega en más de 320 puntos en Venezuela. Tu familiar no paga nada al recibir el paquete.
+
+      *Tarifas referenciales, sujetas a confirmación al momento del envío. La carga debe estar en oficina una semana antes de la fecha de salida pautada. Escríbenos por WhatsApp (USA) al +1 (832) 815-9187 para cotizar tu envío.
+    `
+  },
   nosotros: {
     title: 'Sobre Remesas BYS',
     content: `
@@ -65,9 +85,10 @@ const PAGE_CONTENT = {
     title: 'Contacto',
     content: `
       Estamos aquí para ayudarte. Puedes contactarnos a través de los siguientes canales:
-      
+
       - Email: contacto@bnsglobalservices.com
-      - WhatsApp: +56 9 3571 6037
+      - WhatsApp (USA): +1 (832) 815-9187
+      - WhatsApp (Chile): +56 9 3571 6037
       - Horario de Atención: Lunes a Viernes de 9:00 a 18:00 hrs.
       
       También puedes seguirnos en nuestras redes sociales para estar al tanto de las últimas novedades y tasas.

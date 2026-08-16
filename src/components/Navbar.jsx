@@ -65,6 +65,7 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
 
     const navItems = [
         { label: 'Inicio', action: onLogoClick },
+        { label: 'Paquetería', action: () => onPageClick('paqueteria') },
         { label: 'Sobre Remesas B&S', action: () => onPageClick('nosotros') },
         { label: 'Contacto', action: () => onPageClick('contacto') },
     ];
@@ -91,19 +92,16 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
                         >
                             <Box
                                 component="img"
-                                src="/assets/images/icon.png"
+                                src="/assets/images/logo-bys-oficial.jpg"
+                                alt="B&S Global Services LLC"
                                 sx={{
-                                    width: 40,
-                                    height: 40,
-                                    bgcolor: 'primary.main',
-                                    borderRadius: '12px',
-                                    display: 'grid',
-                                    placeItems: 'center',
-                                    color: 'white',
+                                    width: 44,
+                                    height: 44,
+                                    borderRadius: '50%',
+                                    objectFit: 'cover',
                                     boxShadow: '0 8px 16px rgba(221, 62, 0, 0.2)'
                                 }}
-                            >
-                            </Box>
+                            />
                             <Typography
                                 variant="h5"
                                 sx={{

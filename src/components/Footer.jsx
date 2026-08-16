@@ -43,16 +43,15 @@ export default function Footer({ onPageClick }) {
               <Stack direction="row" alignItems="center" spacing={1.5}>
                 <Box
                   component="img"
-                  src="/assets/images/icon.png"
+                  src="/assets/images/logo-bys-oficial.jpg"
+                  alt="B&S Global Services LLC"
                   sx={{
-                    width: 40,
-                    height: 40,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    width: 48,
+                    height: 48,
+                    borderRadius: '50%',
+                    objectFit: 'cover',
                   }}
-                >
-                </Box>
+                />
                 <Typography
                   variant="h5"
                   fontWeight={900}
@@ -67,7 +66,10 @@ export default function Footer({ onPageClick }) {
                 </Typography>
               </Stack>
               <Typography variant="body2" sx={{ opacity: 0.7, maxWidth: 280, lineHeight: 1.8 }}>
-                La forma más rápida y segura de enviar dinero en América latina. Únete a cientos de personas que ahorran en cada transferencia.
+                La forma más rápida y segura de enviar dinero a Venezuela. Únete a cientos de personas que ahorran en cada transferencia.
+              </Typography>
+              <Typography variant="body2" sx={{ opacity: 0.7, maxWidth: 280, lineHeight: 1.8, fontWeight: 700 }}>
+                🤝 Agentes autorizados de Cargoexpress Venezuela, aliados con Tealca para la distribución puerta a puerta.
               </Typography>
               <Stack direction="row" spacing={1}>
                 {/* Guardados para uso futuro: FacebookIcon, TwitterIcon, LinkedInIcon */}
@@ -90,6 +92,7 @@ export default function Footer({ onPageClick }) {
             <Stack spacing={1}>
               {[
                 { label: 'Sobre Remesas BYS', slug: 'nosotros' },
+                { label: 'Paquetería', slug: 'paqueteria' },
                 { label: 'Carreras', slug: 'carreras' },
                 { label: 'Contacto', slug: 'contacto' }
               ].map(item => (
@@ -139,7 +142,11 @@ export default function Footer({ onPageClick }) {
                 <Typography variant="body1">contacto@bnsglobalservices.com</Typography>
               </Box>
               <Box>
-                <Typography variant="body2" sx={{ opacity: 0.5 }}>Teléfono / WhatsApp</Typography>
+                <Typography variant="body2" sx={{ opacity: 0.5 }}>WhatsApp (USA)</Typography>
+                <Typography variant="body1">+1 (832) 815-9187</Typography>
+              </Box>
+              <Box>
+                <Typography variant="body2" sx={{ opacity: 0.5 }}>WhatsApp (Chile)</Typography>
                 <Typography variant="body1">+56 9 3571 6037</Typography>
               </Box>
               <Box>
