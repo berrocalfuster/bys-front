@@ -27,7 +27,7 @@ export default function DownloadBanner() {
                   letterSpacing: '-0.02em'
                 }}
               >
-                Lleva Remesas BYS <br />
+                Lleva B&S Global Services <br />
                 <Box component="span" sx={{ color: 'primary.main' }}>en tu bolsillo</Box>
               </Typography>
               <Typography

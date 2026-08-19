@@ -6,44 +6,45 @@ const PAGE_CONTENT = {
   terminos: {
     title: 'Términos y Condiciones',
     content: `
-      Estos términos y condiciones rigen el uso de los servicios de Remesas BYS. Al acceder a nuestra plataforma, usted acepta cumplir con estas disposiciones.
-      
-      1. Registro: El usuario debe ser mayor de edad y proporcionar información veraz.
-      2. Operaciones: Remesas BYS actúa como intermediario para el envío de remesas.
-      3. Comisiones: Todas las tarifas se muestran antes de confirmar la operación.
-      4. Responsabilidad: El usuario es responsable de la exactitud de los datos del destinatario.
+      Estos términos y condiciones rigen el uso de los servicios de remesas y paquetería de B&S Global Services. Al acceder a nuestra plataforma, usted acepta cumplir con estas disposiciones.
+
+      1. Registro: El usuario debe ser mayor de edad y proporcionar información veraz para poder operar en la plataforma.
+      2. Operaciones: B&S Global Services actúa como intermediario para el envío de remesas hacia Venezuela, y como agente autorizado de Cargoexpress Venezuela para el envío de paquetería puerta a puerta.
+      3. Comisiones: Todas las tarifas y tasas de cambio se muestran antes de confirmar la operación, sin cargos ocultos.
+      4. Responsabilidad: El usuario es responsable de la exactitud de los datos del destinatario (nombre, documento y datos bancarios) para garantizar la correcta entrega del envío.
     `
   },
   privacidad: {
     title: 'Política de Privacidad',
     content: `
-      En Remesas BYS, la privacidad de su información es nuestra prioridad. 
-      
-      - Recolectamos datos básicos para validar su identidad y procesar sus envíos.
-      - No compartimos su información con terceros para fines comerciales.
-      - Utilizamos encriptación de grado bancario para proteger sus transacciones.
-      - Usted tiene derecho a solicitar la eliminación de sus datos en cualquier momento.
+      En B&S Global Services, la privacidad de su información es nuestra prioridad.
+
+      - Recolectamos únicamente los datos necesarios para validar su identidad y procesar sus remesas o envíos de paquetería.
+      - No vendemos ni compartimos su información con terceros para fines comerciales.
+      - Utilizamos encriptación de grado bancario para proteger sus datos y transacciones.
+      - Usted tiene derecho a solicitar la corrección o eliminación de sus datos en cualquier momento escribiéndonos a contacto@bnsglobalservices.com.
     `
   },
   cookies: {
     title: 'Política de Cookies',
     content: `
-      Utilizamos cookies para mejorar su experiencia en nuestra plataforma. 
-      
-      - Cookies técnicas: Necesarias para el funcionamiento del sitio y la sesión.
-      - Cookies de análisis: Nos ayudan a entender cómo se usa el sitio para mejorarlo.
-      - Usted puede desactivar las cookies en la configuración de su navegador.
+      Utilizamos cookies para mejorar su experiencia en nuestra plataforma.
+
+      - Cookies técnicas: necesarias para mantener su sesión iniciada y el funcionamiento del sitio.
+      - Cookies de análisis: nos ayudan a entender cómo se usa el sitio para seguir mejorándolo.
+      - Usted puede desactivar las cookies desde la configuración de su navegador en cualquier momento.
     `
   },
   seguridad: {
     title: 'Seguridad',
     content: `
-      Su dinero y sus datos están protegidos por múltiples capas de seguridad.
-      
-      - Verificación de Identidad (KYC) para prevenir fraude.
-      - Conexiones seguras SSL/TLS.
-      - Monitoreo de transacciones 24/7.
-      - Soporte dedicado en caso de cualquier incidencia.
+      Tu dinero, tus paquetes y tus datos están protegidos en cada paso del proceso.
+
+      - Verificación de identidad (KYC) para prevenir fraude y suplantación.
+      - Conexiones cifradas SSL/TLS en toda la plataforma.
+      - Alianza con Cargoexpress Venezuela y Tealca para una red de distribución verificada de más de 110 oficinas en Venezuela.
+      - Comprobante y seguimiento disponibles para cada remesa y cada paquete enviado.
+      - Soporte directo por WhatsApp ante cualquier duda o incidencia.
     `
   },
   paqueteria: {
@@ -51,32 +52,36 @@ const PAGE_CONTENT = {
     custom: true
   },
   nosotros: {
-    title: 'Sobre Remesas BYS',
+    title: 'Sobre B&S Global Services',
     content: `
-      Remesas BYS nació con la misión de derribar las fronteras financieras para la comunidad hispana en el exterior.
-      
-      Creemos en un sistema de remesas justo, transparente y extremadamente rápido. Nuestra tecnología conecta familias de forma humana, permitiendo que el esfuerzo de quienes trabajan fuera llegue íntegro y seguro a su destino.
+      B&S Global Services nació para resolver un problema muy concreto: enviar dinero y paquetes a Venezuela sin que la familia tenga que hacer filas, pagar de más, o quedarse esperando sin saber qué pasó con su envío.
+
+      Desde nuestra oficina en Fishers, Indiana, conectamos a la comunidad venezolana en Estados Unidos con sus seres queridos, combinando remesas con las mejores tasas y paquetería con entrega puerta a puerta en más de 320 puntos del país.
+
+      Somos agentes autorizados de Cargoexpress Venezuela, aliados con Tealca para la distribución nacional, lo que nos permite ofrecer una red de entrega real y verificada, no solo una promesa.
+
+      Creemos en un servicio rápido, transparente y humano: tasas claras antes de confirmar cada envío, seguimiento de principio a fin, y un equipo que responde por WhatsApp cuando lo necesitas, no un buzón de voz.
     `
   },
   carreras: {
     title: 'Trabaja con Nosotros',
     content: `
-      ¿Te apasiona la tecnología y el impacto social? En Remesas BYS estamos buscando talentos que quieran revolucionar el mundo de las remesas.
-      
-      Ofrecemos un ambiente de trabajo dinámico, remoto y enfocado en resultados. Escríbenos a talento@remesasbys.com con tu CV y cuéntanos por qué quieres ser parte de la manada.
+      ¿Te apasiona ayudar a la comunidad venezolana en el exterior? En B&S Global Services estamos construyendo el servicio de remesas y paquetería de confianza para quienes tienen a su familia en Venezuela.
+
+      Ofrecemos un ambiente de trabajo dinámico y enfocado en resultados reales para nuestros clientes. Escríbenos a contacto@bnsglobalservices.com con tu CV y cuéntanos por qué quieres ser parte del equipo.
     `
   },
   contacto: {
     title: 'Contacto',
     content: `
-      Estamos aquí para ayudarte. Puedes contactarnos a través de los siguientes canales:
+      Estamos aquí para ayudarte con tu remesa o tu envío de paquetería. Puedes contactarnos a través de los siguientes canales:
 
       - Email: contacto@bnsglobalservices.com
       - WhatsApp (USA): +1 (832) 815-9187
       - WhatsApp (Chile): +56 9 3571 6037
-      - Horario de Atención: Lunes a Viernes de 9:00 a 18:00 hrs.
-      
-      También puedes seguirnos en nuestras redes sociales para estar al tanto de las últimas novedades y tasas.
+      - Horario de atención: Lunes a Viernes de 9:00 a.m. a 6:00 p.m.
+
+      También puedes seguirnos en Instagram y Facebook (@remesasbys1) para estar al tanto de las últimas tasas y novedades.
     `
   }
 };

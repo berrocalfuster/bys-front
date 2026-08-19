@@ -229,7 +229,7 @@ export default function AIChatWidget() {
           <Box sx={{ p: 2, bgcolor: 'primary.main', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Stack direction="row" spacing={2} alignItems="center">
               <HiSparkles size={24} />
-              <Typography variant="subtitle1" fontWeight={800}>Asistente AI Remesas BYS</Typography>
+              <Typography variant="subtitle1" fontWeight={800}>Asistente B&S Global Services</Typography>
             </Stack>
             <IconButton onClick={() => dispatch(closeChat())} sx={{ color: 'white' }}>
               <HiXMark />

@@ -539,7 +539,7 @@ export default function MyTransactions() {
                                 {/* Admin Proof Image */}
                                 {detail.transferImageUrl && detail.transferImageUrl !== detail.imageUrl && (
                                     <Box>
-                                        <Typography variant="overline" color="success.main" fontWeight={800} gutterBottom sx={{ display: 'block' }}>Comprobante de Pago (Remesas BYS)</Typography>
+                                        <Typography variant="overline" color="success.main" fontWeight={800} gutterBottom sx={{ display: 'block' }}>Comprobante de Pago (B&S Global Services)</Typography>
                                         <Box 
                                             component="img" 
                                             src={detail.transferImageUrl} 

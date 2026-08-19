@@ -100,7 +100,7 @@ export default function Footer({ onPageClick }) {
             <Typography variant="subtitle2" fontWeight={700} gutterBottom>Nosotros</Typography>
             <Stack spacing={1}>
               {[
-                { label: 'Sobre Remesas BYS', slug: 'nosotros' },
+                { label: 'Sobre B&S Global Services', slug: 'nosotros' },
                 { label: 'Paquetería', slug: 'paqueteria' },
                 { label: 'Carreras', slug: 'carreras' },
                 { label: 'Contacto', slug: 'contacto' }
@@ -170,7 +170,7 @@ export default function Footer({ onPageClick }) {
 
         <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems="center" spacing={2}>
           <Typography variant="caption" sx={{ opacity: 0.4 }}>
-            © {currentYear} Remesas BYS Financial Services. Todos los derechos reservados.
+            © {currentYear} B&S Global Services. Todos los derechos reservados.
           </Typography>
           <Typography variant="caption" sx={{ opacity: 0.4 }}>
             Hecho con ❤️ para la comunidad hispana.
