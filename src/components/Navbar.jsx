@@ -11,10 +11,12 @@ import {
     Menu,
     MenuItem,
     Tooltip,
-    Chip
+    Chip,
+    Drawer,
+    Divider
 } from '@mui/material';
 import { cloneElement, useState } from 'react';
-import { HiSun, HiMoon, HiMenu, HiUserCircle } from 'react-icons/hi';
+import { HiSun, HiMoon, HiMenu, HiUserCircle, HiX } from 'react-icons/hi';
 import { MdAccountBalanceWallet, MdLogout, MdPerson, MdReceipt, MdVerified } from 'react-icons/md';
 import { HiShieldCheck } from 'react-icons/hi2';
 
@@ -50,6 +52,7 @@ function ElevationScroll({ children }) {
 export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode, onLogoClick, onPageClick, onDashboardClick }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const isMenuOpen = Boolean(anchorEl);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleMenuOpen = (event) => {
         if (!user) {
@@ -73,6 +76,7 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
     const isKycApproved = user?.kycStatus === 'approved';
 
     return (
+        <>
         <ElevationScroll>
             <AppBar position="fixed" color="inherit">
                 <Container maxWidth="lg">
@@ -113,7 +117,7 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
                                     WebkitTextFillColor: mode === 'light' ? 'transparent' : 'inherit'
                                 }}
                             >
-                                Tu casa de cambios
+                                B&S Global Services
                             </Typography>
                         </Stack>
 
@@ -231,7 +235,7 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
                                 </MenuItem>
                             </Menu>
 
-                            <IconButton sx={{ display: { md: 'none' } }} color="inherit">
+                            <IconButton sx={{ display: { md: 'none' } }} color="inherit" onClick={() => setMobileOpen(true)}>
                                 <HiMenu />
                             </IconButton>
                         </Stack>
@@ -239,5 +243,36 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
                 </Container>
             </AppBar>
         </ElevationScroll>
+
+            <Drawer anchor="right" open={mobileOpen} onClose={() => setMobileOpen(false)}>
+                <Box sx={{ width: 260, pt: 2 }} role="presentation">
+                    <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ px: 2, pb: 1 }}>
+                        <Typography fontWeight={800}>Menú</Typography>
+                        <IconButton onClick={() => setMobileOpen(false)}>
+                            <HiX />
+                        </IconButton>
+                    </Stack>
+                    <Divider />
+                    <Stack sx={{ py: 1 }}>
+                        {navItems.map((item) => (
+                            <Button
+                                key={item.label}
+                                onClick={() => { setMobileOpen(false); item.action(); }}
+                                sx={{
+                                    justifyContent: 'flex-start',
+                                    px: 3,
+                                    py: 1.5,
+                                    borderRadius: 0,
+                                    fontWeight: 600,
+                                    color: 'text.primary',
+                                }}
+                            >
+                                {item.label}
+                            </Button>
+                        ))}
+                    </Stack>
+                </Box>
+            </Drawer>
+        </>
     );
 }

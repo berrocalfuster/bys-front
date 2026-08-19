@@ -110,9 +110,9 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
                             type: file.type
                         });
                         
-                        // Valid URL has to contain "wesyncro" and not be the generic fallback endpoint
-                        const isValid = resData?.put && 
-                                        resData.put.includes('wesyncro') && 
+                        // Valid URL has to be a real presigned URL, not the generic fallback endpoint
+                        const isValid = resData?.put &&
+                                        resData.put.startsWith('https://') &&
                                         resData.put !== 'https://s3.us-west-2.amazonaws.com/';
 
                         if (isValid && resData.link) {

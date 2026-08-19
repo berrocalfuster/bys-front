@@ -1,7 +1,4 @@
 import {
-  require_react_dom
-} from "./chunk-SZZZMFBH.js";
-import {
   ClassNameGenerator_default,
   CssVarsProvider,
   DefaultPropsProvider_default,
@@ -123,10 +120,13 @@ import {
   visuallyHidden_default,
   withStyles,
   withTheme
-} from "./chunk-3UYQEMLY.js";
+} from "./chunk-KWDIW55X.js";
 import {
   require_jsx_runtime
 } from "./chunk-JBIJKIOV.js";
+import {
+  require_react_dom
+} from "./chunk-SZZZMFBH.js";
 import {
   require_react
 } from "./chunk-VX2H6PUQ.js";

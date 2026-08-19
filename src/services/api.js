@@ -1,5 +1,5 @@
 const DEBUG = false
-const API_BASE = DEBUG === true ? "http://localhost:5004" : 'https://backend.wesyncro.click';
+const API_BASE = DEBUG === true ? "http://localhost:5004" : (import.meta.env.VITE_API_BASE || 'https://bys-exchange-backend.onrender.com');
 const EXCHANGE_PATH = import.meta.env.VITE_EXCHANGE_PATH || '/api/1.0/custom-apps/exchange-public';
 const PROPIETARIO = import.meta.env.VITE_PROPIETARIO || '';
 

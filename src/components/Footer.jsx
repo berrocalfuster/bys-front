@@ -62,7 +62,7 @@ export default function Footer({ onPageClick }) {
                     letterSpacing: '-0.02em'
                   }}
                 >
-                  Tu casa de cambios
+                  B&S Global Services
                 </Typography>
               </Stack>
               <Typography variant="body2" sx={{ opacity: 0.7, maxWidth: 280, lineHeight: 1.8 }}>
@@ -72,15 +72,24 @@ export default function Footer({ onPageClick }) {
                 🤝 Agentes autorizados de Cargoexpress Venezuela, aliados con Tealca para la distribución puerta a puerta.
               </Typography>
               <Stack direction="row" spacing={1}>
-                {/* Guardados para uso futuro: FacebookIcon, TwitterIcon, LinkedInIcon */}
-                <IconButton 
-                  component="a" 
-                  href="https://www.instagram.com/remesasbys1/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                {/* Guardados para uso futuro: TwitterIcon, LinkedInIcon */}
+                <IconButton
+                  component="a"
+                  href="https://www.instagram.com/remesasbys1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{ color: 'white', opacity: 0.6, '&:hover': { opacity: 1, bgcolor: 'rgba(255,255,255,0.1)' } }}
                 >
                   <FaInstagram size={24} />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="https://www.facebook.com/Remesasbys1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ color: 'white', opacity: 0.6, '&:hover': { opacity: 1, bgcolor: 'rgba(255,255,255,0.1)' } }}
+                >
+                  <FacebookIcon />
                 </IconButton>
               </Stack>
             </Stack>
