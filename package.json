@@ -16,6 +16,8 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/material": "^6.5.0",
     "@reduxjs/toolkit": "^2.11.2",
+    "@stripe/react-stripe-js": "^6.8.1",
+    "@stripe/stripe-js": "^9.13.0",
     "@sumsub/websdk-react": "^2.6.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

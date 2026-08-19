@@ -1,97 +1,109 @@
 {
-  "hash": "77078bcc",
+  "hash": "4d933e68",
   "configHash": "9abd6d34",
-  "lockfileHash": "59cc516f",
-  "browserHash": "43981581",
+  "lockfileHash": "46a59936",
+  "browserHash": "43c080c8",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "7faf9ada",
+      "fileHash": "95bb799a",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "60ae8ee4",
+      "fileHash": "ab777ad6",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "f4cc602c",
+      "fileHash": "486289bd",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "ae679dc1",
+      "fileHash": "483c4545",
       "needsInterop": true
     },
     "@mui/material": {
       "src": "../../node_modules/@mui/material/index.js",
       "file": "@mui_material.js",
-      "fileHash": "ecd1f091",
+      "fileHash": "f504b1cc",
       "needsInterop": false
     },
     "@mui/material/styles": {
       "src": "../../node_modules/@mui/material/styles/index.js",
       "file": "@mui_material_styles.js",
-      "fileHash": "cd1e606f",
+      "fileHash": "f45ca094",
       "needsInterop": false
     },
     "@reduxjs/toolkit": {
       "src": "../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
       "file": "@reduxjs_toolkit.js",
-      "fileHash": "30f814d4",
+      "fileHash": "e71b9f87",
       "needsInterop": false
     },
     "@sumsub/websdk-react": {
       "src": "../../node_modules/@sumsub/websdk-react/dist/index.esm.js",
       "file": "@sumsub_websdk-react.js",
-      "fileHash": "7ee08c06",
+      "fileHash": "e09dc3e5",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "392c82f8",
+      "fileHash": "d9bf162c",
       "needsInterop": true
     },
     "react-icons/fa": {
       "src": "../../node_modules/react-icons/fa/index.mjs",
       "file": "react-icons_fa.js",
-      "fileHash": "02ee1cf8",
+      "fileHash": "bf9b6f6d",
       "needsInterop": false
     },
     "react-icons/hi": {
       "src": "../../node_modules/react-icons/hi/index.mjs",
       "file": "react-icons_hi.js",
-      "fileHash": "e96499fc",
+      "fileHash": "27a59998",
       "needsInterop": false
     },
     "react-icons/hi2": {
       "src": "../../node_modules/react-icons/hi2/index.mjs",
       "file": "react-icons_hi2.js",
-      "fileHash": "080d155c",
+      "fileHash": "da707b36",
       "needsInterop": false
     },
     "react-icons/md": {
       "src": "../../node_modules/react-icons/md/index.mjs",
       "file": "react-icons_md.js",
-      "fileHash": "1965ab95",
+      "fileHash": "61d07a26",
       "needsInterop": false
     },
     "react-redux": {
       "src": "../../node_modules/react-redux/dist/react-redux.mjs",
       "file": "react-redux.js",
-      "fileHash": "aadfdead",
+      "fileHash": "ad19910f",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "9e39a46b",
+      "fileHash": "e4abd764",
+      "needsInterop": false
+    },
+    "@stripe/stripe-js": {
+      "src": "../../node_modules/@stripe/stripe-js/lib/index.mjs",
+      "file": "@stripe_stripe-js.js",
+      "fileHash": "df93e803",
+      "needsInterop": false
+    },
+    "@stripe/react-stripe-js": {
+      "src": "../../node_modules/@stripe/react-stripe-js/dist/react-stripe.esm.mjs",
+      "file": "@stripe_react-stripe-js.js",
+      "fileHash": "5448b919",
       "needsInterop": false
     }
   },
@@ -99,14 +111,17 @@
     "chunk-VSDAB6MB": {
       "file": "chunk-VSDAB6MB.js"
     },
-    "chunk-KWDIW55X": {
-      "file": "chunk-KWDIW55X.js"
+    "chunk-SZZZMFBH": {
+      "file": "chunk-SZZZMFBH.js"
+    },
+    "chunk-46R4LPOH": {
+      "file": "chunk-46R4LPOH.js"
+    },
+    "chunk-O3YSKF65": {
+      "file": "chunk-O3YSKF65.js"
     },
     "chunk-JBIJKIOV": {
       "file": "chunk-JBIJKIOV.js"
-    },
-    "chunk-SZZZMFBH": {
-      "file": "chunk-SZZZMFBH.js"
     },
     "chunk-VX2H6PUQ": {
       "file": "chunk-VX2H6PUQ.js"

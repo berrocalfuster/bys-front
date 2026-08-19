@@ -8,10 +8,13 @@ import {
     Divider,
     Stack,
     Typography,
-    CircularProgress
+    CircularProgress,
+    ToggleButtonGroup,
+    ToggleButton
 } from '@mui/material';
 import api from '../services/api';
 import { HiExclamationCircle } from 'react-icons/hi2';
+import CardPaymentForm from './CardPaymentForm';
 
 // Inline SVG ArrowLeft
 const ArrowLeftIcon = () => (
@@ -20,10 +23,11 @@ const ArrowLeftIcon = () => (
     </svg>
 );
 
-export default function ConfirmationView({ onUpload, isLoading, onBack }) {
+export default function ConfirmationView({ onUpload, isLoading, onBack, onCreateCardSolicitud, onCardSuccess }) {
     const { calculation } = useSelector(state => state.transaction);
     const sourceCurrency = calculation.from;
 
+    const [paymentMethod, setPaymentMethod] = useState('card');
     const [file, setFile] = useState(null);
     const [fileError, setFileError] = useState(false);
     const [accounts, setAccounts] = useState([]);
@@ -81,10 +85,37 @@ export default function ConfirmationView({ onUpload, isLoading, onBack }) {
                         Pago y Confirmación
                     </Typography>
                     <Typography color="text.secondary">
-                        Realiza la transferencia a una de nuestras cuentas y sube el comprobante.
+                        Elige cómo quieres pagar tu envío.
                     </Typography>
                 </Box>
 
+                <ToggleButtonGroup
+                    value={paymentMethod}
+                    exclusive
+                    onChange={(e, value) => value && setPaymentMethod(value)}
+                    fullWidth
+                    sx={{ '& .MuiToggleButton-root': { py: 1.5, borderRadius: 3, fontWeight: 700, textTransform: 'none' } }}
+                >
+                    <ToggleButton value="card">💳 Tarjeta o banco (al instante)</ToggleButton>
+                    <ToggleButton value="manual">🏦 Transferencia manual</ToggleButton>
+                </ToggleButtonGroup>
+
+                {paymentMethod === 'card' && (
+                    <Card sx={{ p: 4, borderRadius: 3, boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                        <Typography variant="h6" gutterBottom>Pagar con tarjeta o cuenta bancaria (ACH)</Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            Tu pago se confirma automáticamente. Con cuenta bancaria (ACH) la comisión es menor, pero puede tardar unos días hábiles en acreditarse.
+                        </Typography>
+                        <CardPaymentForm
+                            amount={calculation.amount}
+                            createSolicitud={onCreateCardSolicitud}
+                            onSuccess={onCardSuccess}
+                            onBack={onBack}
+                        />
+                    </Card>
+                )}
+
+                {paymentMethod === 'manual' && (
                 <Card sx={{ p: 4, borderRadius: 3, boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
 
                     <Typography variant="h6" gutterBottom sx={{ mb: 3 }}>Nuestras Cuentas Bancarias</Typography>
@@ -194,6 +225,7 @@ export default function ConfirmationView({ onUpload, isLoading, onBack }) {
                     </Box>
 
                 </Card>
+                )}
             </Stack>
         </Container>
     );

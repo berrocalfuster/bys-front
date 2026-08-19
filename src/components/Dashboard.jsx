@@ -36,6 +36,7 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
     const [step, setStep] = useState(isAiComplete ? STEPS.SUMMARY : initialStep);
     const [isLoading, setIsLoading] = useState(false);
     const [savedRecipients, setSavedRecipients] = useState([]);
+    const [successVariant, setSuccessVariant] = useState('manual');
 
     // Data Collection - Priority: pendingTransfer (Calculator) > reduxTransaction (AI) > Empty
     const [transferData, setTransferData] = useState(() => {
@@ -173,6 +174,7 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
 
             setTimeout(() => {
                 setIsLoading(false);
+                setSuccessVariant('manual');
                 setStep(STEPS.SUCCESS);
             }, 1000);
 
@@ -181,6 +183,39 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
             alert('Error al procesar la solicitud. Intente nuevamente.');
             setIsLoading(false);
         }
+    };
+
+    // Creates the solicitud up front (no comprobante yet) so the card/ACH payment can be
+    // linked to a real record before the customer enters their payment details.
+    const handleCreateCardSolicitud = async () => {
+        const payload = {
+            propietario: import.meta.env.VITE_PROPIETARIO,
+            owner: transferData.owner,
+            bank: transferData.bank,
+            ...transferData.calculation,
+            user: {
+                email: user.email,
+                name: user.name,
+                phone: user.phone
+            },
+            saveRecipient: transferData.owner.saveRecipient,
+            paymentMethod: 'card',
+            date: new Date()
+        };
+
+        const res = await api.post('/solicitud', payload);
+        if (!res?.id) {
+            throw new Error(res?.errorMessage || 'No se pudo crear la solicitud');
+        }
+        return res.id;
+    };
+
+    // The frontend only knows the card charge or bank debit was *accepted* by Stripe.
+    // The Solicitud's real paymentStatus is only ever set to "paid" by the backend
+    // webhook once Stripe confirms funds actually settled.
+    const handleCardSuccess = ({ pending }) => {
+        setSuccessVariant(pending ? 'pending_bank' : 'paid');
+        setStep(STEPS.SUCCESS);
     };
 
     const handleReset = () => {
@@ -312,12 +347,14 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
                             onUpload={handleFinalUpload}
                             isLoading={isLoading}
                             onBack={() => setStep(STEPS.SUMMARY)}
+                            onCreateCardSolicitud={handleCreateCardSolicitud}
+                            onCardSuccess={handleCardSuccess}
                         />
                     </Box>
                 );
 
             case STEPS.SUCCESS:
-                return <SuccessView onReset={handleReset} />;
+                return <SuccessView onReset={handleReset} variant={successVariant} />;
 
             case STEPS.PROFILE:
                 return (

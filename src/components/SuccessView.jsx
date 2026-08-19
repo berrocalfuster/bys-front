@@ -7,7 +7,23 @@ import {
 } from '@mui/material';
 import { HiCheckCircle } from 'react-icons/hi2';
 
-export default function SuccessView({ onReset }) {
+const MESSAGES = {
+    manual: {
+        title: '¡Enviado Exitosamente!',
+        body: 'Hemos recibido tu solicitud y comprobante. Procesaremos tu cambio a la brevedad.',
+    },
+    paid: {
+        title: '¡Pagado y Confirmado!',
+        body: 'Tu pago se confirmó al instante. Ya estamos procesando tu envío.',
+    },
+    pending_bank: {
+        title: '¡Pago en camino!',
+        body: 'Tu transferencia bancaria fue aceptada y está siendo procesada. Te avisaremos por correo en cuanto se confirme (puede tardar unos días hábiles).',
+    },
+};
+
+export default function SuccessView({ onReset, variant = 'manual' }) {
+    const { title, body } = MESSAGES[variant] || MESSAGES.manual;
     return (
         <Container maxWidth="sm" sx={{ py: 10 }}>
             <Stack spacing={4} alignItems="center" textAlign="center">
@@ -17,10 +33,10 @@ export default function SuccessView({ onReset }) {
 
                 <Box>
                     <Typography variant="h3" fontWeight={800} gutterBottom>
-                        ¡Enviado Exitosamente!
+                        {title}
                     </Typography>
                     <Typography color="text.secondary" sx={{ fontSize: '1.2rem', maxWidth: 400, mx: 'auto' }}>
-                        Hemos recibido tu solicitud y comprobante. Procesaremos tu cambio a la brevedad.
+                        {body}
                     </Typography>
                 </Box>
 
