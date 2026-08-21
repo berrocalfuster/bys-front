@@ -61,7 +61,7 @@ export default function ConfirmationView({ onUpload, isLoading, onBack, onCreate
         onUpload(file);
     };
 
-    const BankAccountInfo = ({ bankName, accountType, number, rut, email, holderName }) => (
+    const BankAccountInfo = ({ bankName, accountType, number, routingNumber, zellePhone, rut, email, holderName }) => (
         <Box sx={{ mb: 3 }}>
             <Stack direction="row" alignItems="center" spacing={1} mb={1}>
                 {/* Placeholder for bank logo */}
@@ -70,8 +70,10 @@ export default function ConfirmationView({ onUpload, isLoading, onBack, onCreate
             </Stack>
             <Box sx={{ pl: 4 }}>
                 <Typography variant="body2" color="text.secondary">{holderName}</Typography>
-                <Typography variant="body2">RUT: <strong>{rut}</strong></Typography>
+                {rut && <Typography variant="body2">RUT/EIN: <strong>{rut}</strong></Typography>}
                 <Typography variant="body2">{accountType}: <strong>{number}</strong></Typography>
+                {routingNumber && <Typography variant="body2">Número de ruta (Routing): <strong>{routingNumber}</strong></Typography>}
+                {zellePhone && <Typography variant="body2">Zelle: <strong>{zellePhone}</strong></Typography>}
                 <Typography variant="body2" sx={{ fontSize: '0.85rem', color: 'text.secondary' }}>{email}</Typography>
             </Box>
         </Box>
@@ -132,6 +134,8 @@ export default function ConfirmationView({ onUpload, isLoading, onBack, onCreate
                                     holderName={acc.accountHolderName}
                                     accountType={acc.accountType}
                                     number={acc.accountNumber}
+                                    routingNumber={acc.routingNumber}
+                                    zellePhone={acc.zellePhone}
                                     rut={acc.accountHolderId}
                                     email={acc.email}
                                 />
