@@ -11,8 +11,8 @@ const getSavedState = () => {
 
 const DEFAULT_STATE = {
   calculation: {
-    from: 'CLP',
-    to: 'USD',
+    from: 'USD',
+    to: 'VES',
     amount: '',
     total: 0,
     rate: 0,
