@@ -70,17 +70,26 @@ function PayButton({ amount, onSuccess, onBack, isLoading }) {
     );
 }
 
-export default function CardPaymentForm({ amount, createSolicitud, onSuccess, onBack }) {
+export default function CardPaymentForm({
+    amount,
+    createSolicitud, // legacy prop name, kept so the remesa flow doesn't need to change
+    createEntity,
+    paymentEndpoint = '/payments/create-intent',
+    buildPaymentBody = (id) => ({ solicitudId: id }),
+    onSuccess,
+    onBack,
+}) {
     const [clientSecret, setClientSecret] = useState(null);
     const [error, setError] = useState('');
 
     useEffect(() => {
         let cancelled = false;
+        const create = createEntity || createSolicitud;
 
         const init = async () => {
             try {
-                const solicitudId = await createSolicitud();
-                const data = await api.post('/payments/create-intent', { solicitudId });
+                const entityId = await create();
+                const data = await api.post(paymentEndpoint, buildPaymentBody(entityId));
                 if (!cancelled) {
                     if (data?.clientSecret) {
                         setClientSecret(data.clientSecret);

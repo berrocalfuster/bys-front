@@ -472,7 +472,7 @@ export default function Calculator({ onNext, externalLoginOpen, setExternalLogin
 
 
                         <Typography textAlign="center" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                            <HiLockClosed /> Sistema de envíos seguros. remesasbys.com
+                            <HiLockClosed /> Sistema de envíos seguros. bnsglobalservices.com
                         </Typography>
 
                         <Stack spacing={1.5}>

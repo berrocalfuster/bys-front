@@ -13,6 +13,7 @@ import LoginModal from './components/LoginModal';
 import Profile from './components/Profile';
 import MyTransactions from './components/MyTransactions';
 import KycVerification from './components/KycVerification';
+import MiCasillero from './components/MiCasillero';
 import { Box, Typography, Container, Stack, Grid, Card, ThemeProvider, CssBaseline } from '@mui/material';
 import { useAuth } from './context/AuthContext';
 import { getTheme } from './theme';
@@ -119,6 +120,7 @@ function AppContent() {
             if (step === 'profile') navigate('/profile');
             else if (step === 'transactions') navigate('/transactions');
             else if (step === 'kyc') navigate('/kyc');
+            else if (step === 'casillero') navigate('/casillero');
             else handleNavigateToDashboard(step);
           }}
         />
@@ -178,6 +180,7 @@ function AppContent() {
             <Route path="/transactions" element={<MyTransactions />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/kyc" element={<KycVerification />} />
+            <Route path="/casillero" element={<MiCasillero onBack={() => navigate('/')} />} />
             <Route path="/p/:slug" element={<StaticPageRoute onBack={() => navigate('/')} />} />
           </Routes>
           <AIChatWidget />
