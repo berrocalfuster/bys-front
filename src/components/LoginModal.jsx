@@ -31,10 +31,14 @@ export default function LoginModal({ open, onClose }) {
 
     const handleEmailSubmit = async (e) => {
         e.preventDefault();
+        if (!name.trim() || !phone.trim()) {
+            setError('Nombre completo y teléfono son obligatorios');
+            return;
+        }
         setIsLoading(true);
         setError('');
         try {
-            await api.post('/auth/init', { email });
+            await api.post('/auth/init', { email, name, phone });
             setStep('code');
         } catch (err) {
             setError(err.message);
@@ -104,7 +108,7 @@ export default function LoginModal({ open, onClose }) {
                     Ingresar
                 </Typography>
                 <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 3 }}>
-                    {step === 'email' && 'Ingresa tu correo para recibir un código de acceso.'}
+                    {step === 'email' && 'Completa tus datos para recibir un código de acceso.'}
                     {step === 'code' && `Ingresa el código enviado a ${email}`}
                     {step === 'profile' && 'Completa tu perfil para continuar.'}
                 </Typography>
@@ -115,6 +119,25 @@ export default function LoginModal({ open, onClose }) {
                     <form onSubmit={handleEmailSubmit}>
                         <Stack spacing={2.5}>
                             <TextField
+                                label="Nombre completo"
+                                variant="outlined"
+                                fullWidth
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                autoFocus
+                            />
+                            <TextField
+                                label="Teléfono"
+                                type="tel"
+                                variant="outlined"
+                                fullWidth
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                required
+                                placeholder="9 1234 5678"
+                            />
+                            <TextField
                                 label="Correo electrónico"
                                 type="email"
                                 variant="outlined"
@@ -122,7 +145,6 @@ export default function LoginModal({ open, onClose }) {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                autoFocus
                             />
                             <Button
                                 type="submit"
