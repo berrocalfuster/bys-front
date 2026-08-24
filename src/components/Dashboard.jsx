@@ -344,6 +344,7 @@ export default function Dashboard({ onBack, initialStep = STEPS.OWNER_FORM, pend
                 return (
                     <Box sx={{ py: 4 }}>
                         <ConfirmationView
+                            calculation={transferData.calculation}
                             onUpload={handleFinalUpload}
                             isLoading={isLoading}
                             onBack={() => setStep(STEPS.SUMMARY)}

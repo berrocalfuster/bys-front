@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import {
     Box,
     Button,
@@ -23,8 +22,7 @@ const ArrowLeftIcon = () => (
     </svg>
 );
 
-export default function ConfirmationView({ onUpload, isLoading, onBack, onCreateCardSolicitud, onCardSuccess }) {
-    const { calculation } = useSelector(state => state.transaction);
+export default function ConfirmationView({ calculation = {}, onUpload, isLoading, onBack, onCreateCardSolicitud, onCardSuccess }) {
     const sourceCurrency = calculation.from;
 
     const [paymentMethod, setPaymentMethod] = useState('card');
