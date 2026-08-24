@@ -49,9 +49,9 @@ import { useNavigate } from 'react-router-dom';
 const STATUS_MAP = {
     all: { label: 'Todas', color: 'default' },
     pending: { label: 'Pendiente', color: 'warning', icon: <HiClock /> },
-    approved: { label: 'Aceptada', color: 'info', icon: <HiCheckCircle /> },
+    approved: { label: 'Pago siendo procesado', color: 'info', icon: <HiCheckCircle /> },
     rejected: { label: 'Rechazada', color: 'error', icon: <HiXCircle /> },
-    completed: { label: 'Completada', color: 'success', icon: <HiCheckCircle /> }
+    completed: { label: 'Pago procesado', color: 'success', icon: <HiCheckCircle /> }
 };
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
