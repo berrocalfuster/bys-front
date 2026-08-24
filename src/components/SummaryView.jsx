@@ -45,7 +45,7 @@ export default function SummaryView({ data, onEdit, onConfirm, onBack }) {
                 <Card sx={{ p: 0, borderRadius: 3, overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
 
                     {/* Section 1: Titular */}
-                    <Box sx={{ p: 3, bgcolor: '#fff' }}>
+                    <Box sx={{ p: 3, bgcolor: 'background.paper' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
                             <Typography variant="h6" fontWeight={700}>Titular</Typography>
                             <Button size="small" onClick={() => onEdit('owner_form')}>Editar</Button>
@@ -59,7 +59,7 @@ export default function SummaryView({ data, onEdit, onConfirm, onBack }) {
                     <Divider />
 
                     {/* Section 2: Banco */}
-                    <Box sx={{ p: 3, bgcolor: '#fff' }}>
+                    <Box sx={{ p: 3, bgcolor: 'background.paper' }}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
                             <Typography variant="h6" fontWeight={700}>Datos Bancarios</Typography>
                             <Button size="small" onClick={() => onEdit('bank_form')}>Editar</Button>
