@@ -188,7 +188,7 @@ function AppContent() {
 
             <Route path="/dashboard" element={<Dashboard onBack={handleDashboardBack} initialStep={initialStep} pendingTransfer={pendingTransfer} />} />
             <Route path="/transactions" element={<MyTransactions />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile onStartTransfer={handleNavigateToDashboard} />} />
             <Route path="/kyc" element={<KycVerification />} />
             <Route path="/casillero" element={<MiCasillero onBack={() => navigate('/')} />} />
             <Route path="/mis-envios" element={<MyShipments />} />
