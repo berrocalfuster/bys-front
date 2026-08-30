@@ -70,6 +70,12 @@ const request = async (endpoint, options = {}) => {
         // Basic response handling
         const data = await response.json().catch(() => ({}));
 
+        if (response.status === 401) {
+            // Session token missing/expired/invalid — drop the stale local session so the UI
+            // reverts to logged-out state instead of silently failing every subsequent call.
+            window.dispatchEvent(new CustomEvent('bys:unauthorized'));
+        }
+
         if (!response.ok || data.errorMessage) {
             throw new Error(data.errorMessage || `Error ${response.status}: ${response.statusText}`);
         }

@@ -18,7 +18,7 @@ import {
 import { cloneElement, useState } from 'react';
 import { HiSun, HiMoon, HiMenu, HiUserCircle, HiX } from 'react-icons/hi';
 import { MdAccountBalanceWallet, MdLogout, MdPerson, MdReceipt, MdVerified } from 'react-icons/md';
-import { HiShieldCheck, HiOutlineArchiveBox } from 'react-icons/hi2';
+import { HiShieldCheck, HiOutlineArchiveBox, HiOutlineMapPin } from 'react-icons/hi2';
 
 function ElevationScroll({ children }) {
     const trigger = useScrollTrigger({
@@ -49,7 +49,7 @@ function ElevationScroll({ children }) {
     });
 }
 
-export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode, onLogoClick, onPageClick, onDashboardClick }) {
+export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode, onLogoClick, onPageClick, onDashboardClick, onCalculatorClick }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const isMenuOpen = Boolean(anchorEl);
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,6 +69,7 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
     const navItems = [
         { label: 'Inicio', action: onLogoClick },
         { label: 'Paquetería', action: () => onPageClick('paqueteria') },
+        { label: 'Calculadora', action: onCalculatorClick },
         { label: 'Sobre B&S Global Services', action: () => onPageClick('nosotros') },
         { label: 'Contacto', action: () => onPageClick('contacto') },
     ];
@@ -214,6 +215,10 @@ export default function Navbar({ onLoginClick, user, logout, mode, onToggleMode,
                                 <MenuItem onClick={() => { handleMenuClose(); onDashboardClick('casillero'); }} sx={{ py: 1.5, gap: 1.5 }}>
                                     <HiOutlineArchiveBox size={20} style={{ opacity: 0.6 }} />
                                     <Typography variant="body2" fontWeight={700}>Mi Casillero</Typography>
+                                </MenuItem>
+                                <MenuItem onClick={() => { handleMenuClose(); onDashboardClick('envios'); }} sx={{ py: 1.5, gap: 1.5 }}>
+                                    <HiOutlineMapPin size={20} style={{ opacity: 0.6 }} />
+                                    <Typography variant="body2" fontWeight={700}>Mis Envíos</Typography>
                                 </MenuItem>
                                 <MenuItem onClick={() => { handleMenuClose(); onDashboardClick('kyc'); }} sx={{ py: 1.5, gap: 1.5 }}>
                                     {isKycApproved ? (

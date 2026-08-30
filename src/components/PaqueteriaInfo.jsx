@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Box,
     Typography,
@@ -6,8 +7,9 @@ import {
     Chip,
     Dialog,
     IconButton,
+    Button,
 } from '@mui/material';
-import { HiXMark } from 'react-icons/hi2';
+import { HiXMark, HiOutlineCalculator } from 'react-icons/hi2';
 
 const RATE_GROUPS = [
     {
@@ -50,6 +52,7 @@ const GALLERY = [
 
 export default function PaqueteriaInfo() {
     const [lightbox, setLightbox] = useState(null);
+    const navigate = useNavigate();
 
     return (
         <Box>
@@ -58,9 +61,18 @@ export default function PaqueteriaInfo() {
                 <Chip label="Aliados con Tealca" variant="outlined" sx={{ fontWeight: 700, py: 2.5 }} />
             </Stack>
 
-            <Typography variant="body1" sx={{ mb: 4, color: 'text.secondary', fontSize: '1.05rem', lineHeight: 1.8 }}>
+            <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary', fontSize: '1.05rem', lineHeight: 1.8 }}>
                 Enviamos encomiendas y mercancía desde Estados Unidos con entrega puerta a puerta en toda Venezuela.
             </Typography>
+
+            <Button
+                variant="contained"
+                startIcon={<HiOutlineCalculator size={20} />}
+                onClick={() => navigate('/calculadora-paqueteria')}
+                sx={{ borderRadius: 3, py: 1.25, px: 3, mb: 4 }}
+            >
+                Calcula tu envío
+            </Button>
 
             {RATE_GROUPS.map((group) => (
                 <Box key={group.label} sx={{ mb: 4 }}>

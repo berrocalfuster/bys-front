@@ -38,6 +38,15 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('app_user');
     };
 
+    // A 401 from the API means the stored session token is missing/expired/invalid
+    // (e.g. a session started before this device had a real token) — log out cleanly
+    // instead of leaving stale state that keeps failing every request.
+    useEffect(() => {
+        const handleUnauthorized = () => logout();
+        window.addEventListener('bys:unauthorized', handleUnauthorized);
+        return () => window.removeEventListener('bys:unauthorized', handleUnauthorized);
+    }, []);
+
     return (
         <AuthContext.Provider value={{ user, login, updateUser, logout, loading }}>
             {!loading && children}

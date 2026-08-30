@@ -16,7 +16,7 @@ const PACKAGE_STATUS = {
     delivered: { label: 'Entregado', color: 'default' },
 };
 
-const SHIPMENT_STATUS = {
+export const SHIPMENT_STATUS = {
     pending_payment: { label: 'Falta pagar', color: 'warning' },
     paid: { label: 'Pagado, preparando envío', color: 'info' },
     in_transit: { label: 'En camino a Venezuela', color: 'primary' },

@@ -14,6 +14,9 @@ import Profile from './components/Profile';
 import MyTransactions from './components/MyTransactions';
 import KycVerification from './components/KycVerification';
 import MiCasillero from './components/MiCasillero';
+import MyShipments from './components/MyShipments';
+import PaqueteriaCalculator from './components/PaqueteriaCalculator';
+import QuickAccessPanel from './components/QuickAccessPanel';
 import { Box, Typography, Container, Stack, Grid, Card, ThemeProvider, CssBaseline } from '@mui/material';
 import { useAuth } from './context/AuthContext';
 import { getTheme } from './theme';
@@ -121,8 +124,10 @@ function AppContent() {
             else if (step === 'transactions') navigate('/transactions');
             else if (step === 'kyc') navigate('/kyc');
             else if (step === 'casillero') navigate('/casillero');
+            else if (step === 'envios') navigate('/mis-envios');
             else handleNavigateToDashboard(step);
           }}
+          onCalculatorClick={() => navigate('/calculadora-paqueteria')}
         />
 
         <Box
@@ -160,6 +165,11 @@ function AppContent() {
                   </Card>
                 </Container>
 
+                <QuickAccessPanel
+                  onCalculatorClick={() => navigate('/calculadora-paqueteria')}
+                  onCasilleroClick={() => navigate('/casillero')}
+                />
+
                 {/* Stats Section */}
                 <Box sx={{ py: 6, borderTop: '1px solid', borderBottom: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
                   <Container maxWidth="lg">
@@ -181,6 +191,8 @@ function AppContent() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/kyc" element={<KycVerification />} />
             <Route path="/casillero" element={<MiCasillero onBack={() => navigate('/')} />} />
+            <Route path="/mis-envios" element={<MyShipments />} />
+            <Route path="/calculadora-paqueteria" element={<PaqueteriaCalculator onRequireLogin={() => setLoginModalOpen(true)} />} />
             <Route path="/p/:slug" element={<StaticPageRoute onBack={() => navigate('/')} />} />
           </Routes>
           <AIChatWidget />

@@ -46,7 +46,7 @@ import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
-const STATUS_MAP = {
+export const STATUS_MAP = {
     all: { label: 'Todas', color: 'default' },
     pending: { label: 'Pendiente', color: 'warning', icon: <HiClock /> },
     approved: { label: 'Pago siendo procesado', color: 'info', icon: <HiCheckCircle /> },
