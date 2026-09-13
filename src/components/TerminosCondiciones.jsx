@@ -17,6 +17,7 @@ const GENERAL_TERMS = [
     '2. Operaciones: B&S Global Services actúa como intermediario para el envío de remesas hacia Venezuela, y como agente autorizado de Cargoexpress Venezuela para el envío de paquetería puerta a puerta.',
     '3. Comisiones: Todas las tarifas y tasas de cambio se muestran antes de confirmar la operación, sin cargos ocultos.',
     '4. Responsabilidad: El usuario es responsable de la exactitud de los datos del destinatario (nombre, documento y datos bancarios) para garantizar la correcta entrega del envío.',
+    '5. Monto mínimo: El envío mínimo de remesas es de $20 USD para cualquier destino.',
 ];
 
 // Política completa de envío marítimo de Cargoexpress Venezuela / Tealca — punto único

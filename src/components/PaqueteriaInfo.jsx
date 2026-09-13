@@ -20,60 +20,13 @@ import {
     HiOutlineShieldCheck,
     HiOutlineTruck,
 } from 'react-icons/hi2';
-
-const RATE_GROUPS = [
-    {
-        label: '10 a 40 lbs (4.5 a 18 kg)',
-        boxes: [
-            { size: '15×12×10 in', price: 119 },
-            { size: '16×12×12 in', price: 129 },
-            { size: '14×14×14 in', price: 139 },
-            { size: '16×16×16 in', price: 189 },
-        ],
-    },
-    {
-        label: '41 a 65 lbs (18.6 a 29.5 kg)',
-        boxes: [
-            { size: '16×18×18 in', price: 239 },
-            { size: '21×16×15 in', price: 239 },
-            { size: '24×18×18 in', price: 299 },
-            { size: '22×22×22 in', price: 389 },
-        ],
-    },
-];
-
-const NOTES = [
-    '📅 Salida cada semana, todos los viernes',
-    '🚢 Entrega marítima: 4 a 8 semanas hábiles',
-    '✈️ Entrega aérea: 9 a 20 días hábiles',
-    '🛡️ Gasto de manejo en destino y seguro adicional incluidos',
-    '📦 Envío UPS incluido (drop off en oficina, restricciones aplican)',
-    '🏢 +110 oficinas · entrega en +320 puntos en Venezuela',
-    '🎁 Tu familiar no paga nada al recibir el paquete',
-];
+import { RATE_GROUPS, NOTES, TV_PRICING, GALLERY } from '../data/paqueteriaData';
 
 const PACKING_TIPS = [
     { icon: <HiOutlineCube size={24} />, title: 'Cajas Heavy Duty', desc: 'Usa cajas nuevas y resistentes (tipo Lowe\'s). No uses cajas usadas o dañadas.' },
     { icon: <HiOutlineScale size={24} />, title: 'Respeta el peso máximo', desc: 'No abultes ni sobrecargues una sola caja — si pesa mucho, divide la mercancía en varias cajas.' },
     { icon: <HiOutlineTag size={24} />, title: 'Asegura bien tu paquete', desc: 'Cierra con cinta resistente y asegúrate de que quede compacta, no abultada.' },
     { icon: <HiOutlineShieldCheck size={24} />, title: 'No incluyas artículos prohibidos', desc: 'Revisa la lista de artículos restringidos antes de empacar (armas, municiones, líquidos inflamables, entre otros).' },
-];
-
-const TV_PRICING = [
-    { size: '32"', price: 164 },
-    { size: '40" – 43"', price: 194 },
-    { size: '48" – 50"', price: 274 },
-    { size: '55" – 60"', price: 484 },
-    { size: '65"', price: 585 },
-    { size: '70"', price: 635 },
-    { size: '75"', price: 724 },
-];
-
-const GALLERY = [
-    { file: 'agente-autorizado-banner.png', alt: 'ByS Global Services, agente autorizado de carga de Cargoexpress Venezuela, aliados con Tealca', wide: true },
-    { file: 'tarifas-maritimo.png', alt: 'Tarifas de envíos marítimos a Venezuela por tamaño de caja' },
-    { file: 'recomendaciones-cajas.png', alt: 'Recomendaciones para empacar y enviar cajas heavy duty' },
-    { file: 'agente-autorizado.png', alt: 'ByS Global Services, agente autorizado de carga en Fishers, Indiana' },
 ];
 
 export default function PaqueteriaInfo() {

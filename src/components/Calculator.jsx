@@ -25,6 +25,7 @@ import { HiArrowPath, HiMinus, HiGlobeAlt, HiChevronDown, HiChevronUp, HiLockClo
 import api from '../services/api';
 
 const DEFAULT_FEE = Number(import.meta.env.VITE_FEE || 0);
+const MIN_AMOUNT_USD = 20;
 
 const nameFallbackByCode = {
     CLP: 'Chile',
@@ -229,8 +230,10 @@ export default function Calculator({ onNext, externalLoginOpen, setExternalLogin
     const feeLabel = formatMoney(DEFAULT_FEE, from);
     const amountToConvert = Math.max(amountNumber - DEFAULT_FEE, 0);
     const roundedConverted = Math.round(converted);
+    const belowMinimum = from === 'USD' && amountNumber > 0 && amountNumber < MIN_AMOUNT_USD;
 
     const handleNext = () => {
+        if (belowMinimum) return;
         const calculationData = {
             from,
             to,
@@ -473,6 +476,7 @@ export default function Calculator({ onNext, externalLoginOpen, setExternalLogin
                             variant="contained"
                             size="large"
                             fullWidth
+                            disabled={belowMinimum}
                             sx={{
                                 borderRadius: 3,
                                 py: 2,
@@ -499,6 +503,11 @@ export default function Calculator({ onNext, externalLoginOpen, setExternalLogin
                             {!loading && !error && !rateDoc && (
                                 <Alert severity="warning">
                                     No hay tasa configurada para {from} → {to}.
+                                </Alert>
+                            )}
+                            {belowMinimum && (
+                                <Alert severity="warning">
+                                    El envío mínimo es de ${MIN_AMOUNT_USD} USD.
                                 </Alert>
                             )}
                         </Stack>

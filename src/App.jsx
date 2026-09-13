@@ -17,6 +17,7 @@ import MiCasillero from './components/MiCasillero';
 import MyShipments from './components/MyShipments';
 import PaqueteriaCalculator from './components/PaqueteriaCalculator';
 import QuickAccessPanel from './components/QuickAccessPanel';
+import ServicesSection from './components/ServicesSection';
 import { Box, Typography, Container, Stack, Grid, Card, ThemeProvider, CssBaseline } from '@mui/material';
 import { useAuth } from './context/AuthContext';
 import { getTheme } from './theme';
@@ -169,6 +170,8 @@ function AppContent() {
                   onCalculatorClick={() => navigate('/calculadora-paqueteria')}
                   onCasilleroClick={() => navigate('/casillero')}
                 />
+
+                <ServicesSection />
 
                 {/* Stats Section */}
                 <Box sx={{ py: 6, borderTop: '1px solid', borderBottom: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
