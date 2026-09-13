@@ -1,18 +1,17 @@
 import { Box, Container, Typography, Divider, Stack, Breadcrumbs, Link as MuiLink } from '@mui/material';
 import { HiHome } from 'react-icons/hi2';
 import PaqueteriaInfo from './PaqueteriaInfo';
+import TerminosCondiciones from './TerminosCondiciones';
+import EnvioUPS from './EnvioUPS';
 
 const PAGE_CONTENT = {
   terminos: {
     title: 'Términos y Condiciones',
-    content: `
-      Estos términos y condiciones rigen el uso de los servicios de remesas y paquetería de B&S Global Services. Al acceder a nuestra plataforma, usted acepta cumplir con estas disposiciones.
-
-      1. Registro: El usuario debe ser mayor de edad y proporcionar información veraz para poder operar en la plataforma.
-      2. Operaciones: B&S Global Services actúa como intermediario para el envío de remesas hacia Venezuela, y como agente autorizado de Cargoexpress Venezuela para el envío de paquetería puerta a puerta.
-      3. Comisiones: Todas las tarifas y tasas de cambio se muestran antes de confirmar la operación, sin cargos ocultos.
-      4. Responsabilidad: El usuario es responsable de la exactitud de los datos del destinatario (nombre, documento y datos bancarios) para garantizar la correcta entrega del envío.
-    `
+    custom: true
+  },
+  'envio-ups': {
+    title: 'Envía tu paquete por UPS (SendBox)',
+    custom: true
   },
   privacidad: {
     title: 'Política de Privacidad',
@@ -109,8 +108,12 @@ export default function StaticPage({ page, onBack }) {
             {data.title}
           </Typography>
           <Divider sx={{ my: 4 }} />
-          {data.custom ? (
+          {page === 'paqueteria' ? (
             <PaqueteriaInfo />
+          ) : page === 'terminos' ? (
+            <TerminosCondiciones />
+          ) : page === 'envio-ups' ? (
+            <EnvioUPS />
           ) : (
             <Stack spacing={3}>
               {data.content.split('\n').map((line, i) => (
