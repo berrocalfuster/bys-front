@@ -143,7 +143,25 @@ export default function Calculator({ onNext, externalLoginOpen, setExternalLogin
 
     const rateDoc = useMemo(() => {
         if (!from || !to) return null;
-        return rates.find((rate) => rate.from === from && rate.to === to && rate.enabled !== false) || null;
+        const direct = rates.find((rate) => rate.from === from && rate.to === to && rate.enabled !== false);
+        if (direct) return direct;
+
+        // No rate configured for this exact direction — fall back to the inverse pair, if the
+        // admin set one up instead (e.g. only "USD → VES" exists, customer picked "VES → USD").
+        // Same rate value, opposite operation: multiply becomes divide and vice versa. This is
+        // only a safety net for pairs the admin hasn't set up explicitly — for a direction that
+        // needs its own rate (not the exact mathematical inverse), add it directly in the admin
+        // panel as its own row instead of relying on this fallback.
+        const inverse = rates.find((rate) => rate.from === to && rate.to === from && rate.enabled !== false);
+        if (inverse) {
+            return {
+                ...inverse,
+                from,
+                to,
+                operation: inverse.operation === 'divide' ? 'multiply' : 'divide',
+            };
+        }
+        return null;
     }, [from, to, rates]);
 
     const currencyLabel = (code) => {
