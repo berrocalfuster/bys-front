@@ -29,6 +29,39 @@ const PACKING_TIPS = [
     { icon: <HiOutlineShieldCheck size={24} />, title: 'No incluyas artículos prohibidos', desc: 'Revisa la lista de artículos restringidos antes de empacar (armas, municiones, líquidos inflamables, entre otros).' },
 ];
 
+const PACKING_IMAGES = [
+    { file: 'como-embalar-caja.webp', alt: 'Cómo embalar tu caja correctamente' },
+    { file: 'ejemplo-caja-mal-embalada.webp', alt: 'Medidas correctas: alto, ancho y largo — ejemplo de caja mal embalada' },
+    { file: 'modelos-cajas.webp', alt: 'Modelos de cajas Heavy Duty: X-Small, Small, Medium y Large' },
+    { file: 'recomendaciones-peso.webp', alt: 'Recomendaciones para clientes sobre peso y manejo de la carga' },
+];
+
+const OVERWEIGHT_IMAGES = [
+    { file: 'evita-sobrepeso.webp', alt: 'Evita el sobrepeso: embala correctamente tu paquete o caja' },
+    { file: 'sobrepeso-aviso.webp', alt: 'Cargos por sobrepeso adicional según las libras de tu caja' },
+];
+
+function ImageThumb({ img, onOpen, height = 180 }) {
+    return (
+        <Box
+            component="button"
+            onClick={() => onOpen(img)}
+            sx={{
+                p: 0, width: '100%', border: '1px solid', borderColor: 'divider', borderRadius: 3,
+                overflow: 'hidden', cursor: 'pointer', bgcolor: 'transparent', lineHeight: 0,
+                '&:hover img': { transform: 'scale(1.03)' },
+            }}
+        >
+            <Box
+                component="img"
+                src={`/assets/images/paqueteria/${img.file}`}
+                alt={img.alt}
+                sx={{ width: '100%', height, objectFit: 'cover', transition: 'transform 0.3s ease', display: 'block' }}
+            />
+        </Box>
+    );
+}
+
 export default function PaqueteriaInfo() {
     const [lightbox, setLightbox] = useState(null);
     const navigate = useNavigate();
@@ -81,6 +114,10 @@ export default function PaqueteriaInfo() {
                 </Box>
             ))}
 
+            <Box sx={{ maxWidth: 420, mx: 'auto', mb: 4 }}>
+                <ImageThumb img={{ file: 'precios-cajas-maritimo.webp', alt: 'Tabla de precios de envío marítimo por tamaño de caja' }} onOpen={setLightbox} height={240} />
+            </Box>
+
             <Box
                 sx={{
                     display: 'grid',
@@ -118,6 +155,14 @@ export default function PaqueteriaInfo() {
                 ))}
             </Grid>
 
+            <Grid container spacing={1.5} sx={{ mb: 5 }}>
+                {PACKING_IMAGES.map((img) => (
+                    <Grid item xs={6} sm={3} key={img.file}>
+                        <ImageThumb img={img} onOpen={setLightbox} height={140} />
+                    </Grid>
+                ))}
+            </Grid>
+
             {/* Envío de televisores */}
             <Typography variant="h6" fontWeight={800} sx={{ mb: 1 }}>Envío de televisores</Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
@@ -138,9 +183,22 @@ export default function PaqueteriaInfo() {
                     </Box>
                 ))}
             </Box>
-            <Typography variant="caption" sx={{ display: 'block', mb: 5, color: 'text.secondary' }}>
+            <Typography variant="caption" sx={{ display: 'block', mb: 3, color: 'text.secondary' }}>
                 *El televisor viaja en su caja original o en cualquier otra caja adecuada. Los televisores de más de 55" requieren un crate de madera.
             </Typography>
+            <Box sx={{ maxWidth: 420, mx: 'auto', mb: 5 }}>
+                <ImageThumb img={{ file: 'envios-tv.webp', alt: 'Precios de envío marítimo de televisores por pulgada' }} onOpen={setLightbox} height={220} />
+            </Box>
+
+            {/* Sobrepeso */}
+            <Typography variant="h6" fontWeight={800} sx={{ mb: 2 }}>Sobrepeso</Typography>
+            <Grid container spacing={1.5} sx={{ mb: 5 }}>
+                {OVERWEIGHT_IMAGES.map((img) => (
+                    <Grid item xs={12} sm={6} key={img.file}>
+                        <ImageThumb img={img} onOpen={setLightbox} height={200} />
+                    </Grid>
+                ))}
+            </Grid>
 
             <Typography variant="h6" fontWeight={800} sx={{ mb: 2 }}>Nuestra red y servicio</Typography>
             <Box
