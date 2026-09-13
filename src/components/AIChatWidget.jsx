@@ -105,6 +105,7 @@ export default function AIChatWidget() {
   const [selectedImage, setSelectedImage] = useState(null); // base64
   const [isTyping, setIsTyping] = useState(false);
   const [showResumeDialog, setShowResumeDialog] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
   const scrollRef = useRef(null);
   const fileInputRef = useRef(null);
 
@@ -154,6 +155,7 @@ export default function AIChatWidget() {
         dispatch(syncFullTransaction(response.fieldsUpdate));
       }
 
+      setIsComplete(!!response.isComplete);
       setMessages(prev => [...prev, { role: 'assistant', text: response.message }]);
     } catch (error) {
       console.error('Chat error:', error);
@@ -175,6 +177,7 @@ export default function AIChatWidget() {
   const handleReset = () => {
     dispatch(resetTransaction());
     setShowResumeDialog(false);
+    setIsComplete(false);
     setMessages([{ role: 'assistant', text: '¡Hola! Empecemos de nuevo. ¿A quién te gustaría enviarle dinero hoy?' }]);
   };
 
@@ -275,9 +278,29 @@ export default function AIChatWidget() {
                 )}
               </Box>
 
+              {isComplete && (
+                <Box sx={{ px: 2, pt: 1.5 }}>
+                  <Card
+                    onClick={handleFinish}
+                    sx={{
+                      p: 1.5, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1.5,
+                      bgcolor: 'success.main', color: 'white', cursor: 'pointer', borderRadius: 2.5,
+                      boxShadow: '0 4px 15px rgba(46, 125, 50, 0.35)',
+                    }}
+                  >
+                    <Typography variant="body2" fontWeight={800}>
+                      ✅ ¡Ya tengo todo! Continúa para elegir cómo pagar (tarjeta, Apple Pay, transferencia y más).
+                    </Typography>
+                    <Button size="small" variant="contained" color="inherit" sx={{ bgcolor: 'white', color: 'success.main', borderRadius: 2, fontWeight: 800, flexShrink: 0, '&:hover': { bgcolor: 'grey.100' } }}>
+                      Continuar →
+                    </Button>
+                  </Card>
+                </Box>
+              )}
+
               {/* Input */}
               <Box sx={{ p: 2, borderTop: '1px solid', borderColor: 'divider' }}>
-                <input 
+                <input
                   type="file" 
                   hidden 
                   ref={fileInputRef} 
