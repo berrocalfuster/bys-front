@@ -145,10 +145,16 @@ export default function AIChatWidget() {
     setIsTyping(true);
 
     try {
+      // Sent so the AI keeps context across turns that aren't captured by `transaction`
+      // (e.g. a question about paquetería) — without this it has no memory of what was
+      // just said and treats every non-remesa reply as the start of a new conversation.
+      const history = messages.map(m => ({ role: m.role, content: m.text }));
+
       const response = await api.post('/ai-chat', {
         message: inputText,
         currentState: transaction,
-        image: userMessage.image
+        image: userMessage.image,
+        history
       });
 
       if (response.fieldsUpdate) {
