@@ -180,7 +180,6 @@ const TERMS_SECTIONS = [
 const GALLERY = [
     { file: 'agente-autorizado-banner.png', alt: 'ByS Global Services, agente autorizado de carga de Cargoexpress Venezuela, aliados con Tealca', wide: true },
     { file: 'tarifas-maritimo.png', alt: 'Tarifas de envíos marítimos a Venezuela por tamaño de caja' },
-    { file: 'calendario-salidas.png', alt: 'Calendario de salidas semanales a Venezuela' },
     { file: 'recomendaciones-cajas.png', alt: 'Recomendaciones para empacar y enviar cajas heavy duty' },
     { file: 'agente-autorizado.png', alt: 'ByS Global Services, agente autorizado de carga en Fishers, Indiana' },
 ];
